@@ -1,4 +1,4 @@
-```html
+```
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -536,12 +536,143 @@
         .action-btn:hover { background-color: var(--color-yamabuki); transform: translateY(-2px); }
         .action-btn-primary { background-color: var(--color-coral); box-shadow: 3px 3px 0px var(--color-ink); }
 
+        /* 🔐 4 位數密碼鎖遮罩與繪本風數字鍵盤 */
+        .pin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-washitsu);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .pin-overlay.hidden {
+            display: none;
+        }
+
+        .pin-card {
+            background-color: var(--bg-cream);
+            border: 3px solid var(--color-ink);
+            border-radius: 28px;
+            padding: 28px 24px;
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+            box-shadow: 6px 6px 0px var(--color-ink);
+        }
+
+        .pin-dots {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin: 18px 0 12px 0;
+        }
+
+        .pin-dot {
+            width: 22px;
+            height: 22px;
+            border: 3px solid var(--color-ink);
+            border-radius: 50%;
+            background-color: var(--bg-washitsu);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+
+        .pin-dot.filled {
+            background-color: var(--color-coral);
+            transform: scale(1.12);
+        }
+
+        .pin-error-msg {
+            min-height: 22px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            color: var(--color-ink);
+            margin-bottom: 10px;
+        }
+
+        .pin-keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .pin-key {
+            font-family: inherit;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background-color: var(--bg-washitsu);
+            color: var(--color-ink);
+            border: 3px solid var(--color-ink);
+            border-radius: 18px;
+            padding: 12px 0;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px var(--color-ink);
+            user-select: none;
+            transition: transform 0.1s ease, background-color 0.15s ease;
+        }
+
+        .pin-key:hover, .pin-key:active {
+            background-color: var(--bg-yellow);
+            transform: translateY(-2px);
+        }
+
+        .pin-key.key-fn {
+            font-size: 0.95rem;
+            background-color: var(--bg-milktea);
+        }
+
+        .pin-key.key-ok {
+            font-size: 0.95rem;
+            background-color: var(--color-wakatake);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
         }
     </style>
 </head>
 <body>
+
+    <!-- 🔐 4 位數繪本風密碼鎖畫面 -->
+    <div id="pin-lock-overlay" class="pin-overlay">
+        <div class="pin-card">
+            <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 8px auto; display: block;">
+                <rect x="8" y="20" width="32" height="22" rx="7" fill="#FAD77B" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M15 20V14C15 9.02944 19.0294 5 24 5C28.9706 5 33 9.02944 33 14V20" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="24" cy="30" r="3.5" fill="#3E3A39"/>
+                <line x1="24" y1="33" x2="24" y2="37" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <h2 style="font-size: 1.35rem; margin-bottom: 4px;">2026 橫濱・東京專屬行程</h2>
+            <p style="font-size: 0.92rem;">請輸入 4 位數旅伴通行密碼解鎖</p>
+            <div class="pin-dots">
+                <div class="pin-dot" id="pin-dot-0"></div>
+                <div class="pin-dot" id="pin-dot-1"></div>
+                <div class="pin-dot" id="pin-dot-2"></div>
+                <div class="pin-dot" id="pin-dot-3"></div>
+            </div>
+            <div class="pin-error-msg" id="pin-error-msg">💡 解鎖後本機將自動記憶通行狀態</div>
+            <div class="pin-keypad">
+                <button type="button" class="pin-key" onclick="pressPin('1')">1</button>
+                <button type="button" class="pin-key" onclick="pressPin('2')">2</button>
+                <button type="button" class="pin-key" onclick="pressPin('3')">3</button>
+                <button type="button" class="pin-key" onclick="pressPin('4')">4</button>
+                <button type="button" class="pin-key" onclick="pressPin('5')">5</button>
+                <button type="button" class="pin-key" onclick="pressPin('6')">6</button>
+                <button type="button" class="pin-key" onclick="pressPin('7')">7</button>
+                <button type="button" class="pin-key" onclick="pressPin('8')">8</button>
+                <button type="button" class="pin-key" onclick="pressPin('9')">9</button>
+                <button type="button" class="pin-key key-fn" onclick="clearPin()">清除</button>
+                <button type="button" class="pin-key" onclick="pressPin('0')">0</button>
+                <button type="button" class="pin-key key-ok" onclick="backspacePin()">⌫ 退格</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 1. 頂端固定導覽選單 -->
     <nav>
@@ -561,6 +692,7 @@
             <li><a href="#hotels">住宿資訊</a></li>
             <li><a href="#checklist">自訂待辦</a></li>
             <li><a href="#help">求助資訊</a></li>
+            <li><a onclick="lockSite()" style="background-color: var(--bg-snow); border: 2px solid var(--color-ink);">🔒 上鎖</a></li>
         </ul>
     </nav>
 
@@ -1976,6 +2108,96 @@
     </div>
 
     <script>
+        // 0. 🔐 4 位數繪本風密碼鎖功能（預設密碼：1128 或 2026，亦可自訂）
+        const VALID_PINS = ['1128', '2026'];
+        let currentPinInput = '';
+
+        function updatePinDots() {
+            for (let i = 0; i < 4; i++) {
+                const dot = document.getElementById('pin-dot-' + i);
+                if (dot) {
+                    if (i < currentPinInput.length) {
+                        dot.classList.add('filled');
+                    } else {
+                        dot.classList.remove('filled');
+                    }
+                }
+            }
+        }
+
+        function pressPin(digit) {
+            if (currentPinInput.length >= 4) return;
+            currentPinInput += String(digit);
+            updatePinDots();
+            if (currentPinInput.length === 4) {
+                setTimeout(verifyPin, 120);
+            }
+        }
+
+        function backspacePin() {
+            if (currentPinInput.length > 0) {
+                currentPinInput = currentPinInput.slice(0, -1);
+                updatePinDots();
+            }
+        }
+
+        function clearPin() {
+            currentPinInput = '';
+            updatePinDots();
+            const msgEl = document.getElementById('pin-error-msg');
+            if (msgEl) {
+                msgEl.textContent = '💡 請輸入 4 位數通行密碼';
+                msgEl.style.color = 'var(--color-ink)';
+            }
+        }
+
+        function verifyPin() {
+            const customPin = localStorage.getItem('jp2026_custom_pin');
+            const isValid = VALID_PINS.includes(currentPinInput) || (customPin && currentPinInput === customPin);
+            const overlay = document.getElementById('pin-lock-overlay');
+            const msgEl = document.getElementById('pin-error-msg');
+
+            if (isValid) {
+                localStorage.setItem('jp2026_unlocked', '1');
+                if (overlay) overlay.classList.add('hidden');
+                currentPinInput = '';
+                updatePinDots();
+            } else {
+                if (msgEl) {
+                    msgEl.textContent = '❌ 密碼不正確，請重新輸入！';
+                    msgEl.style.color = '#c62828';
+                }
+                currentPinInput = '';
+                updatePinDots();
+            }
+        }
+
+        function lockSite() {
+            localStorage.removeItem('jp2026_unlocked');
+            currentPinInput = '';
+            updatePinDots();
+            const overlay = document.getElementById('pin-lock-overlay');
+            const msgEl = document.getElementById('pin-error-msg');
+            if (msgEl) {
+                msgEl.textContent = '🔒 網站已上鎖，請輸入 4 位數密碼解鎖';
+                msgEl.style.color = 'var(--color-ink)';
+            }
+            if (overlay) overlay.classList.remove('hidden');
+        }
+
+        // 支援電腦鍵盤直接輸入數字解鎖
+        window.addEventListener('keydown', (e) => {
+            const overlay = document.getElementById('pin-lock-overlay');
+            if (!overlay || overlay.classList.contains('hidden')) return;
+            if (e.key >= '0' && e.key <= '9') {
+                pressPin(e.key);
+            } else if (e.key === 'Backspace') {
+                backspacePin();
+            } else if (e.key === 'Escape') {
+                clearPin();
+            }
+        });
+
         // 1. 出發倒數計時器 (目標：2026-11-28 09:20)
         function updateCountdown() {
             const departure = new Date("2026-11-28T09:20:00+08:00").getTime();
@@ -2426,6 +2648,10 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('jp2026_unlocked') === '1') {
+                const overlay = document.getElementById('pin-lock-overlay');
+                if (overlay) overlay.classList.add('hidden');
+            }
             const savedRate = localStorage.getItem('jp2026_fx_rate');
             if (savedRate) {
                 document.getElementById('rate-input').value = savedRate;
@@ -2445,4 +2671,5 @@
     </script>
 </body>
 </html>
+
 ```
