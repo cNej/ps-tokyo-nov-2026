@@ -1,0 +1,2448 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 橫濱・東京 銀杏紅葉與聖誕燈飾十天九夜之旅</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Huninn&family=Kosugi+Maru&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+        /* 嚴格配色設定（指定之 12 色號，平塗無漸層） */
+        :root {
+            /* 主要配色 */
+            --bg-washitsu: #FFFDF9;
+            --color-ink: #3E3A39;
+            --color-coral: #F4A69A;
+            --color-yamabuki: #FAD77B;
+            --color-water: #A4D4EC;
+            --color-wakatake: #C2E0B4;
+            
+            /* 輔助配色 */
+            --bg-cream: #FFFBF3;
+            --bg-snow: #FCEFEF;
+            --bg-ice: #EAF4FC;
+            --bg-milktea: #EADFD2;
+            --bg-sky: #EBF7FC;
+            --bg-yellow: #FEECA6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Huninn', 'Zen Maru Gothic', 'Kosugi Maru', sans-serif;
+            background-color: var(--bg-washitsu);
+            color: var(--color-ink);
+            padding-bottom: 70px;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* 頂端固定導覽選單 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 64px;
+            background-color: var(--bg-cream);
+            border-bottom: 3px solid var(--color-ink);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 18px;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .nav-logo {
+            font-size: 1.12rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            list-style: none;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-ink);
+            font-weight: bold;
+            font-size: 0.86rem;
+            padding: 6px 10px;
+            border-radius: 14px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--bg-yellow);
+            border-color: var(--color-ink);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 840px;
+            margin: 92px auto 20px auto;
+            padding: 16px;
+        }
+
+        /* 聖誕燈飾串裝飾橫幅 */
+        .Festive-Garland {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto 14px auto;
+        }
+
+        /* 卡片大圓角與 3px 墨灰粗線框 */
+        .card {
+            background-color: var(--bg-cream);
+            border: 3px solid var(--color-ink);
+            border-radius: 28px;
+            padding: 24px 20px;
+            margin-bottom: 28px;
+            box-shadow: 4px 4px 0px var(--color-ink);
+            position: relative;
+        }
+
+        /* 卡片角落手繪銀杏與紅葉小裝飾 */
+        .corner-deco {
+            position: absolute;
+            top: -14px;
+            right: 22px;
+            width: 58px;
+            height: 36px;
+            pointer-events: none;
+        }
+
+        /* 首頁主視覺 Hero */
+        .hero {
+            background-color: var(--bg-cream);
+            text-align: center;
+            padding: 26px 20px 28px 20px;
+        }
+
+        .season-pill-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .season-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border: 2px solid var(--color-ink);
+            border-radius: 14px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 1.85rem;
+            margin: 12px 0 8px 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+        }
+
+        .countdown-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            background-color: var(--bg-yellow);
+            padding: 10px 22px;
+            border-radius: 20px;
+            border: 3px solid var(--color-ink);
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .countdown-number {
+            background-color: var(--color-coral);
+            padding: 2px 10px;
+            border-radius: 12px;
+            border: 3px solid var(--color-ink);
+            font-size: 1.2rem;
+        }
+
+        /* SVG 插圖與輕微自然動態 */
+        .svg-illustration {
+            width: 100%;
+            max-width: 460px;
+            height: auto;
+            margin: 6px auto 12px auto;
+            display: block;
+        }
+
+        .section-divider-svg {
+            width: 100%;
+            max-width: 260px;
+            height: 28px;
+            display: block;
+            margin: -10px auto 18px auto;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @keyframes swaySlow {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(4deg); }
+        }
+
+        @keyframes leafDrift {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(-6deg); }
+        }
+
+        @keyframes twinkleBulb {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        .float-anim { animation: floatSlow 4s ease-in-out infinite; }
+        .sway-anim { transform-origin: center bottom; animation: swaySlow 3.5s ease-in-out infinite; }
+        .leaf-anim { transform-origin: center center; animation: leafDrift 3.2s ease-in-out infinite; }
+        .bulb-anim { transform-origin: center center; animation: twinkleBulb 2.4s ease-in-out infinite; }
+
+        /* 區段標題 */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--color-ink);
+        }
+
+        .section-title svg {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+
+        /* 雙欄網格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.5rem; }
+        }
+
+        .subcard {
+            border: 3px solid var(--color-ink);
+            border-radius: 20px;
+            padding: 16px;
+        }
+
+        .subcard-sky { background-color: var(--bg-sky); }
+        .subcard-snow { background-color: var(--bg-snow); }
+        .subcard-yellow { background-color: var(--bg-yellow); }
+        .subcard-milktea { background-color: var(--bg-milktea); }
+        .subcard-ice { background-color: var(--bg-ice); }
+        .subcard-washitsu { background-color: var(--bg-washitsu); }
+
+        .subcard-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* 日期切換按鈕 */
+        .day-switcher {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 6px 4px 14px 4px;
+            margin-bottom: 16px;
+        }
+
+        .day-btn {
+            font-family: inherit;
+            background-color: var(--bg-washitsu);
+            color: var(--color-ink);
+            border: 3px solid var(--color-ink);
+            border-radius: 18px;
+            padding: 10px 16px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .day-btn:hover {
+            background-color: var(--bg-yellow);
+            transform: translateY(-2px);
+        }
+
+        .day-btn.active {
+            background-color: var(--color-coral);
+            box-shadow: 3px 3px 0px var(--color-ink);
+            transform: translateY(-2px);
+        }
+
+        /* 每日行程切換容器與彈跳動畫 */
+        .itinerary-container {
+            display: none;
+        }
+
+        .itinerary-container.active {
+            display: block;
+            animation: bounceSwitch 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes bounceSwitch {
+            0% { opacity: 0; transform: translateY(14px) scale(0.97); }
+            65% { opacity: 1; transform: translateY(-4px) scale(1.01); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .day-header {
+            background-color: var(--bg-milktea);
+            border: 3px solid var(--color-ink);
+            border-radius: 18px;
+            padding: 12px 16px;
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* 當天天氣橫幅（按當天所在地顯示） */
+        .weather-banner {
+            background-color: var(--bg-sky);
+            border: 3px solid var(--color-ink);
+            border-radius: 18px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .weather-left { display: flex; align-items: center; gap: 12px; }
+
+        .weather-icon-box {
+            width: 46px;
+            height: 46px;
+            background-color: var(--bg-washitsu);
+            border: 3px solid var(--color-ink);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .weather-temp-pill {
+            background-color: var(--bg-yellow);
+            border: 2px solid var(--color-ink);
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        /* 時間軸設計 */
+        .timeline { position: relative; padding-left: 32px; }
+        .timeline::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 3px; background-color: var(--color-ink); }
+        .timeline-item { position: relative; margin-bottom: 18px; }
+        .timeline-marker {
+            position: absolute;
+            left: -29px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--color-yamabuki);
+            border: 3px solid var(--color-ink);
+        }
+        .timeline-marker.marker-coral { background-color: var(--color-coral); }
+        .timeline-marker.marker-green { background-color: var(--color-wakatake); }
+
+        .timeline-time {
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            display: inline-block;
+            background-color: var(--bg-yellow);
+            padding: 2px 10px;
+            border-radius: 10px;
+            border: 2px solid var(--color-ink);
+        }
+
+        .timeline-content {
+            background-color: var(--bg-washitsu);
+            border: 3px solid var(--color-ink);
+            border-radius: 18px;
+            padding: 14px 16px;
+            margin-top: 6px;
+        }
+
+        /* 小標籤 */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border: 2px solid var(--color-ink);
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+
+        .badge-must { background-color: var(--color-coral); }
+        .badge-flight { background-color: var(--color-water); }
+        .badge-train { background-color: var(--color-wakatake); }
+        .badge-bus { background-color: var(--color-yamabuki); }
+        .badge-cable { background-color: var(--bg-snow); }
+        .badge-food { background-color: var(--bg-yellow); }
+        .badge-spot { background-color: var(--bg-ice); }
+
+        /* Google Maps 導航按鈕（具體指向與可靠格式） */
+        .map-btn-row { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--bg-sky);
+            color: var(--color-ink);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 14px;
+            border: 2px solid var(--color-ink);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+
+        .map-btn:hover { background-color: var(--color-water); transform: translateY(-2px); }
+        .tip-box { margin-top: 8px; padding: 8px 12px; background-color: var(--bg-snow); border: 2px solid var(--color-ink); border-radius: 12px; font-size: 0.9rem; }
+
+        /* 匯率換算與記帳輸入框 */
+        .fx-box { background-color: var(--bg-washitsu); border: 3px solid var(--color-ink); border-radius: 20px; padding: 18px; }
+        .fx-input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+        .fx-input-group label { font-weight: bold; font-size: 0.95rem; }
+        .fx-input, .expense-select {
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: bold;
+            padding: 10px 14px;
+            border: 3px solid var(--color-ink);
+            border-radius: 14px;
+            background-color: var(--bg-cream);
+            color: var(--color-ink);
+            width: 100%;
+        }
+
+        .fx-quick-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .fx-quick-btn {
+            font-family: inherit;
+            background-color: var(--bg-yellow);
+            color: var(--color-ink);
+            border: 2px solid var(--color-ink);
+            border-radius: 12px;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        .fx-quick-btn:hover { background-color: var(--color-yamabuki); transform: translateY(-2px); }
+
+        /* 購物記帳看板 */
+        .budget-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+        @media (max-width: 640px) { .budget-summary-grid { grid-template-columns: 1fr; } }
+
+        .stat-card { border: 3px solid var(--color-ink); border-radius: 18px; padding: 14px; text-align: center; }
+        .stat-label { font-size: 0.88rem; font-weight: bold; margin-bottom: 4px; }
+        .stat-value { font-size: 1.45rem; font-weight: 700; }
+
+        .budget-bar-wrapper { background-color: var(--bg-washitsu); border: 3px solid var(--color-ink); border-radius: 18px; padding: 14px 16px; margin-bottom: 18px; }
+        .budget-bar-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; font-weight: bold; font-size: 0.95rem; }
+        .budget-track { width: 100%; height: 22px; background-color: var(--bg-cream); border: 3px solid var(--color-ink); border-radius: 12px; overflow: hidden; }
+        .budget-fill { height: 100%; width: 0%; background-color: var(--color-wakatake); border-right: 3px solid var(--color-ink); transition: width 0.3s ease, background-color 0.3s ease; }
+
+        .expense-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 640px) { .expense-form-grid { grid-template-columns: 1fr; } }
+
+        .expense-list-container { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+        .expense-row { background-color: var(--bg-washitsu); border: 3px solid var(--color-ink); border-radius: 16px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .expense-row-left { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .expense-row-right { display: flex; align-items: center; gap: 12px; }
+        .expense-amount-jpy { font-weight: 700; font-size: 1.1rem; }
+        .expense-amount-hkd { font-size: 0.88rem; background-color: var(--bg-yellow); padding: 2px 8px; border: 2px solid var(--color-ink); border-radius: 8px; font-weight: bold; }
+        .del-expense-btn { font-family: inherit; background-color: var(--bg-snow); color: var(--color-ink); border: 2px solid var(--color-ink); border-radius: 10px; padding: 4px 10px; font-weight: bold; font-size: 0.82rem; cursor: pointer; }
+        .del-expense-btn:hover { background-color: var(--color-coral); }
+
+        /* 自訂待辦清單 */
+        .todo-input-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+        .todo-grid { display: flex; flex-direction: column; gap: 10px; }
+        .todo-item { display: flex; align-items: center; gap: 12px; background-color: var(--bg-washitsu); border: 3px solid var(--color-ink); border-radius: 16px; padding: 12px 14px; cursor: pointer; user-select: none; justify-content: space-between; }
+        .todo-item-left { display: flex; align-items: center; gap: 12px; flex: 1; }
+        .todo-item input[type="checkbox"] { width: 24px; height: 24px; border: 3px solid var(--color-ink); border-radius: 8px; cursor: pointer; appearance: none; background-color: var(--bg-cream); position: relative; flex-shrink: 0; }
+        .todo-item input[type="checkbox"]:checked { background-color: var(--color-wakatake); }
+        .todo-item input[type="checkbox"]:checked::after { content: '✓'; position: absolute; left: 3px; top: -3px; font-size: 16px; color: var(--color-ink); font-weight: bold; }
+        .todo-text.completed { text-decoration: line-through; opacity: 0.65; }
+
+        .action-btn { font-family: inherit; background-color: var(--bg-milktea); color: var(--color-ink); border: 3px solid var(--color-ink); border-radius: 14px; padding: 8px 16px; font-weight: bold; cursor: pointer; transition: transform 0.15s ease; }
+        .action-btn:hover { background-color: var(--color-yamabuki); transform: translateY(-2px); }
+        .action-btn-primary { background-color: var(--color-coral); box-shadow: 3px 3px 0px var(--color-ink); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 頂端固定導覽選單 -->
+    <nav>
+        <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="13" fill="#FEECA6" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M16 23V17M16 17C11 17 8 13 10 9C12 10 14 11 16 9C18 11 20 10 22 9C24 13 21 17 16 17Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="23" cy="22" r="4" fill="#F4A69A" stroke="#3E3A39" stroke-width="2"/>
+            </svg>
+            <span>2026 橫濱・東京秋冬繪本旅</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#flights">航班資訊</a></li>
+            <li><a href="#itinerary">每日行程</a></li>
+            <li><a href="#shopping-sec">購物記帳</a></li>
+            <li><a href="#fx-sec">匯率換算</a></li>
+            <li><a href="#hotels">住宿資訊</a></li>
+            <li><a href="#checklist">自訂待辦</a></li>
+            <li><a href="#help">求助資訊</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- 頂部聖誕燈飾與銀杏紅葉掛旗 -->
+        <svg class="Festive-Garland" viewBox="0 0 600 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 8 Q 150 32 300 10 Q 450 32 590 8" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle class="bulb-anim" cx="55" cy="16" r="7" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+            <circle class="bulb-anim" cx="120" cy="21" r="7" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.5"/>
+            <g class="leaf-anim">
+                <path d="M185 28 C178 28 175 21 179 16 C182 18 185 18 185 15 C185 18 188 18 191 16 C195 21 192 28 185 28 Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.2"/>
+            </g>
+            <circle class="bulb-anim" cx="245" cy="18" r="7" fill="#A4D4EC" stroke="#3E3A39" stroke-width="2.5"/>
+            <polygon class="bulb-anim" points="300,4 304,12 313,13 306,19 308,27 300,23 292,27 294,19 287,13 296,12" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle class="bulb-anim" cx="355" cy="18" r="7" fill="#C2E0B4" stroke="#3E3A39" stroke-width="2.5"/>
+            <g class="leaf-anim">
+                <path d="M415 15 L418 21 L424 19 L420 25 L423 30 L415 27 L407 30 L410 25 L406 19 L412 21 Z" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+            </g>
+            <circle class="bulb-anim" cx="480" cy="21" r="7" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+            <circle class="bulb-anim" cx="545" cy="15" r="7" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.5"/>
+        </svg>
+        
+        <!-- 2. 首頁主視覺插圖、旅遊標題及出發倒數 -->
+        <section class="card hero">
+            <div class="season-pill-row">
+                <span class="season-pill" style="background-color: var(--bg-yellow);">🍂 外苑・御苑金黃銀杏</span>
+                <span class="season-pill" style="background-color: var(--bg-snow);">🍁 皇居乾通秋楓紅葉</span>
+                <span class="season-pill" style="background-color: var(--bg-sky);">🎄 紅磚倉庫・六本木聖誕燈飾</span>
+            </div>
+
+            <!-- 主視覺手繪插圖 -->
+            <svg class="svg-illustration" viewBox="0 0 380 185" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="6" width="368" height="173" rx="22" fill="#EBF7FC" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M18 18 Q 100 38 190 16 Q 280 38 362 18" stroke="#3E3A39" stroke-width="2.5" fill="none"/>
+                <circle class="bulb-anim" cx="58" cy="26" r="4.5" fill="#FAD77B" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="bulb-anim" cx="105" cy="29" r="4.5" fill="#F4A69A" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="bulb-anim" cx="152" cy="24" r="4.5" fill="#C2E0B4" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="bulb-anim" cx="228" cy="24" r="4.5" fill="#FAD77B" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="bulb-anim" cx="275" cy="29" r="4.5" fill="#F4A69A" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="bulb-anim" cx="322" cy="25" r="4.5" fill="#A4D4EC" stroke="#3E3A39" stroke-width="2"/>
+                <circle class="float-anim" cx="58" cy="58" r="18" fill="#F4A69A" stroke="#3E3A39" stroke-width="3"/>
+                <g class="float-anim">
+                    <path d="M110 52 C110 44 122 44 127 49 C131 42 145 42 148 49 C155 47 161 53 159 59 L110 59 Z" fill="#FFFDF9" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                </g>
+                <path d="M125 156 L175 72 C180 64 196 64 201 72 L250 156 Z" fill="#A4D4EC" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M167 85 L175 72 C180 64 196 64 201 72 L209 85 C203 89 198 83 193 88 C188 83 183 89 178 84 Z" fill="#FFFDF9" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <line x1="20" y1="86" x2="145" y2="104" stroke="#3E3A39" stroke-width="2.5"/>
+                <g class="float-anim">
+                    <line x1="82" y1="95" x2="82" y2="106" stroke="#3E3A39" stroke-width="3"/>
+                    <rect x="68" y="106" width="28" height="20" rx="6" fill="#FEECA6" stroke="#3E3A39" stroke-width="3"/>
+                    <rect x="73" y="110" width="8" height="8" rx="2" fill="#EAF4FC" stroke="#3E3A39" stroke-width="2"/>
+                    <rect x="83" y="110" width="8" height="8" rx="2" fill="#EAF4FC" stroke="#3E3A39" stroke-width="2"/>
+                </g>
+                <rect x="26" y="125" width="66" height="31" rx="4" fill="#F4A69A" stroke="#3E3A39" stroke-width="3"/>
+                <polygon points="22,125 42,109 62,125" fill="#EADFD2" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="56,125 76,109 96,125" fill="#EADFD2" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <rect x="36" y="134" width="10" height="12" rx="2" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5"/>
+                <rect x="54" y="134" width="10" height="12" rx="2" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5"/>
+                <rect x="72" y="134" width="10" height="12" rx="2" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5"/>
+                <rect x="113" y="144" width="8" height="12" fill="#EADFD2" stroke="#3E3A39" stroke-width="2.5"/>
+                <polygon points="98,144 117,118 136,144" fill="#C2E0B4" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <polygon points="102,126 117,103 132,126" fill="#C2E0B4" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <circle class="bulb-anim" cx="117" cy="99" r="5" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.2"/>
+                <circle cx="112" cy="122" r="3" fill="#F4A69A" stroke="#3E3A39" stroke-width="1.8"/>
+                <circle cx="123" cy="136" r="3" fill="#FEECA6" stroke="#3E3A39" stroke-width="1.8"/>
+                <g class="sway-anim">
+                    <line x1="242" y1="156" x2="242" y2="130" stroke="#3E3A39" stroke-width="3"/>
+                    <circle cx="242" cy="118" r="15" fill="#FAD77B" stroke="#3E3A39" stroke-width="3"/>
+                    <circle cx="233" cy="124" r="10" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5"/>
+                </g>
+                <path d="M275 156 L292 68 L298 68 L315 156 Z" fill="#F4A69A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                <line x1="295" y1="52" x2="295" y2="68" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+                <rect x="281" y="112" width="28" height="10" rx="3" fill="#FFFDF9" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M285 156 C285 143 305 143 305 156" fill="#EBF7FC" stroke="#3E3A39" stroke-width="3"/>
+                <g class="sway-anim">
+                    <line x1="340" y1="156" x2="340" y2="132" stroke="#3E3A39" stroke-width="3"/>
+                    <circle cx="340" cy="120" r="14" fill="#F4A69A" stroke="#3E3A39" stroke-width="3"/>
+                    <circle cx="348" cy="127" r="9" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+                </g>
+                <g class="leaf-anim">
+                    <path d="M218 56 C213 56 211 50 214 46 C216 48 218 48 218 45 C218 48 220 48 222 46 C225 50 223 56 218 56 Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2"/>
+                </g>
+                <g class="leaf-anim">
+                    <circle cx="332" cy="68" r="5" fill="#F4A69A" stroke="#3E3A39" stroke-width="2"/>
+                </g>
+                <line x1="18" y1="156" x2="362" y2="156" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+
+            <h1>2026 橫濱・東京秋冬繪本之旅</h1>
+            <p>2026年11月28日（六）～ 12月7日（一）｜銀杏・紅葉・聖誕燈飾十天九夜</p>
+            <div>
+                <div class="countdown-container">
+                    <span>🎒 距離出發還有</span>
+                    <span class="countdown-number" id="countdown-days">--</span>
+                    <span>天</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 航班資訊卡片 -->
+        <section id="flights" class="card">
+            <svg class="corner-deco" viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30 C12 30 9 21 14 14 C17 17 20 17 20 13 C20 17 23 17 26 14 C31 21 28 30 20 30 Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+                <circle cx="42" cy="22" r="9" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.5"/>
+            </svg>
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="24" height="24" rx="8" fill="#A4D4EC" stroke="#3E3A39" stroke-width="3"/>
+                    <path d="M7 16L21 9L17 20L13 16L7 16Z" fill="#FFFDF9" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+                </svg>
+                <span>航班資訊總覽</span>
+            </h2>
+            <div class="grid-2">
+                <div class="subcard subcard-sky">
+                    <div class="subcard-title">
+                        <span class="badge badge-flight">去程航班</span>
+                        <span>11月28日（星期六）</span>
+                    </div>
+                    <p><strong>航空公司：</strong>香港快運 HK Express UO848</p>
+                    <p><strong>出發機場：</strong>香港國際機場 HKG (第二客運大樓 T2)</p>
+                    <p><strong>抵達機場：</strong>東京成田國際機場 NRT (第二客運大樓 T2)</p>
+                    <p><strong>航班時間：</strong>09:20 起飛 → 14:25 抵達</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+2" target="_blank" rel="noopener noreferrer">📍 成田機場 T2 地圖導航</a>
+                    </div>
+                </div>
+                <div class="subcard subcard-snow">
+                    <div class="subcard-title">
+                        <span class="badge badge-must">回程航班</span>
+                        <span>12月07日（星期一）</span>
+                    </div>
+                    <p><strong>航空公司：</strong>香港快運 HK Express UO871</p>
+                    <p><strong>出發機場：</strong>東京成田國際機場 NRT (第二客運大樓 T2)</p>
+                    <p><strong>抵達機場：</strong>香港國際機場 HKG (第一客運大樓 T1)</p>
+                    <p><strong>航班時間：</strong>16:55 起飛 → 21:20 抵達</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport+Terminal+1" target="_blank" rel="noopener noreferrer">📍 香港國際機場 T1 地圖導航</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 手繪銀杏・紅葉・燈球分隔線 SVG -->
+        <svg class="section-divider-svg" viewBox="0 0 260 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="14" x2="85" y2="14" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="105" cy="14" r="6" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.5"/>
+            <polygon points="130,4 133,11 140,11 135,15 137,22 130,18 123,22 125,15 120,11 127,11" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="155" cy="14" r="6" fill="#C2E0B4" stroke="#3E3A39" stroke-width="2.5"/>
+            <line x1="175" y1="14" x2="250" y2="14" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+        <!-- 4. 每日行程區域 (按當天所在地顯示天氣 + Google Maps 導航按鈕) -->
+        <section id="itinerary" class="card">
+            <svg class="corner-deco" viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 10 L21 17 L28 15 L23 21 L26 28 L18 24 L10 28 L13 21 L8 15 L15 17 Z" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+                <circle cx="44" cy="20" r="8" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+            </svg>
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="5" width="22" height="20" rx="6" fill="#FAD77B" stroke="#3E3A39" stroke-width="3"/>
+                    <line x1="3" y1="11" x2="25" y2="11" stroke="#3E3A39" stroke-width="3"/>
+                    <line x1="9" y1="2" x2="9" y2="7" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="19" y1="2" x2="19" y2="7" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span>每日行程時間軸（含每天天氣與地圖導航）</span>
+            </h2>
+            
+            <div class="day-switcher" role="tablist" aria-label="旅遊日期切換">
+                <button class="day-btn active" onclick="switchDay(1)">Day 1 (11/28)</button>
+                <button class="day-btn" onclick="switchDay(2)">Day 2 (11/29)</button>
+                <button class="day-btn" onclick="switchDay(3)">Day 3 (11/30)</button>
+                <button class="day-btn" onclick="switchDay(4)">Day 4 (12/01)</button>
+                <button class="day-btn" onclick="switchDay(5)">Day 5 (12/02)</button>
+                <button class="day-btn" onclick="switchDay(6)">Day 6 (12/03)</button>
+                <button class="day-btn" onclick="switchDay(7)">Day 7 (12/04)</button>
+                <button class="day-btn" onclick="switchDay(8)">Day 8 (12/05)</button>
+                <button class="day-btn" onclick="switchDay(9)">Day 9 (12/06)</button>
+                <button class="day-btn" onclick="switchDay(10)">Day 10 (12/07)</button>
+            </div>
+
+            <!-- 第 1 天 -->
+            <div id="day-1" class="itinerary-container active">
+                <div class="day-header">
+                    <span>Day 1｜11月28日（星期六）抵達成田・前往橫濱入住</span>
+                    <span class="badge badge-flight">✈️ 啟程日</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🌤️</div>
+                        <div>
+                            <strong>當日行程所在地：成田 → 橫濱站周邊</strong>
+                            <p style="font-size: 0.9rem;">晴時多雲｜傍晚抵達橫濱海風微涼，出站走天橋直達飯店</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：10°C – 16°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">09:20 – 14:25</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-flight">飛機 UO848</span>
+                            <strong>香港 HKG (T2) → 東京成田 NRT (T2)</strong>
+                            <p>搭乘香港快運班機抵達東京成田國際機場第二航廈。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+2" target="_blank" rel="noopener noreferrer">🗺️ 成田機場 T2 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-time">15:48 – 17:16</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-train">JR 成田特快 N'EX</span>
+                            <strong>成田機場 → 橫濱站</strong>
+                            <p>搭乘 Narita Express (N’EX) 直達橫濱站。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+Station" target="_blank" rel="noopener noreferrer">🗺️ 橫濱站地圖導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">18:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">酒店入住</span>
+                            <strong>SOTETSU HOTELS THE SPLAISIR YOKOHAMA（相鉄ホテルズ ザ・スプラジール 横浜）</strong>
+                            <p>辦理入住手續，放好行李稍作休息。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=SOTETSU+HOTELS+THE+SPLAISIR+YOKOHAMA" target="_blank" rel="noopener noreferrer">🗺️ 橫濱飯店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">入住後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物散步</span>
+                            <strong>Lumine Yokohama</strong>
+                            <p>於橫濱站相連的 Lumine 商場輕鬆逛街。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Lumine+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ Lumine 橫濱導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">晚餐時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">溫暖晚餐</span>
+                            <strong>Soup Stock Tokyo 橫濱 Porta 店</strong>
+                            <p>享用暖胃湯品套餐料理（營業時間至 23:00 關門）。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Soup+Stock+Tokyo+Yokohama+Porta" target="_blank" rel="noopener noreferrer">🗺️ Soup Stock Tokyo 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 2 天 -->
+            <div id="day-2" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 2｜11月29日（星期日）港未來購物・按摩舒壓・橫濱美術館</span>
+                    <span class="badge badge-spot">🎨 港未來散策</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">☀️</div>
+                        <div>
+                            <strong>當日行程所在地：橫濱港未來 (Minato Mirai)・橫濱站</strong>
+                            <p style="font-size: 0.9rem;">晴朗舒適｜多為室內商場與美術館行程，夜間吹海風請備薄圍巾</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：9°C – 15°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">11:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">午餐</span>
+                            <strong>鎌倉パスタ みなとみらい店 (Kamakura Pasta)</strong>
+                            <p>品嚐日系風味生義大利麵與現烤麵包。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kamakura+Pasta+Minatomirai+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ 鎌倉パスタ導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">商場購物</span>
+                            <strong>MARK IS Minato Mirai (みなとみらい)</strong>
+                            <p>港未來大型購物中心閒逛選購生活雜貨與服飾。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=MARK+IS+Minato+Mirai" target="_blank" rel="noopener noreferrer">🗺️ MARK IS 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">下午時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">藝術文化</span>
+                            <strong>橫濱美術館（18:00 關門）</strong>
+                            <div class="tip-box">💡 貼心提醒：美術館 18:00 閉館，若於 17:00 按摩結束後才前往，參觀時間較短，建議可於按摩前先參觀。</div>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+Museum+of+Art" target="_blank" rel="noopener noreferrer">🗺️ 橫濱美術館導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-time">16:00 – 17:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">放鬆體驗</span>
+                            <strong>Raffine 按摩</strong>
+                            <p>享受一小時舒緩按摩，消除旅途疲勞。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Raffine+Minatomirai+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ Raffine 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">傍晚時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物巡禮</span>
+                            <strong>MORE’S Yokohama &amp; YODOBASHI 橫濱</strong>
+                            <p>逛 BEAMS Life、Hands（21:00 關門）以及 YODOBASHI 電器百貨。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+MORES" target="_blank" rel="noopener noreferrer">🗺️ MORE'S 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yodobashi+Camera+Multimedia+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ YODOBASHI 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">20:30 – 22:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">已預約晚餐</span>
+                            <strong>焼肉うしごろ 橫濱店 (Yakiniku USHIGORO)</strong>
+                            <p>享用頂級和牛燒肉饗宴。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yakiniku+Ushigoro+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ 焼肉うしごろ 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 3 天 -->
+            <div id="day-3" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 3｜11月30日（星期一）橫濱站週邊・空中纜車・紅磚倉庫聖誕市集</span>
+                    <span class="badge badge-must">🎄 聖誕市集與夜景</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🌬️</div>
+                        <div>
+                            <strong>當日行程所在地：橫濱站 → 櫻木町・紅磚倉庫海濱</strong>
+                            <p style="font-size: 0.9rem;">晴朗微涼｜晚間紅磚倉庫海邊風大，逛聖誕市集請穿防風保暖外套</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：8°C – 14°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">11:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">午餐</span>
+                            <strong>博多天ぷら たかお JOINUS 橫濱店</strong>
+                            <p>現炸博多天婦羅定食，搭配明太子無限享用。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hakata+Tempura+Takao+Joinus+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ たかお天婦羅導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物扭蛋</span>
+                            <strong>橫濱站西口・東口逛街</strong>
+                            <p>前往 #C-pla 橫濱西口店、BIC CAMERA 橫濱西口店、LOFT Sogo Yokohama。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Yokohama+West+Exit" target="_blank" rel="noopener noreferrer">🗺️ BIC CAMERA 橫濱西口</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Loft+Sogo+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ SOGO 橫濱 LOFT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">約 17:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-cable">空中纜車</span>
+                            <strong>YOKOHAMA AIR CABIN 橫濱空中纜車（21:00 關門）</strong>
+                            <p>從高空俯瞰橫濱港未來黃昏與璀璨夜景。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=YOKOHAMA+AIR+CABIN" target="_blank" rel="noopener noreferrer">🗺️ 空中纜車導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">纜車後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">商場逛街</span>
+                            <strong>Yokohama World Porters</strong>
+                            <p>逛 Gashapon Bandai 及 THANK YOU MART。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+World+Porters" target="_blank" rel="noopener noreferrer">🗺️ World Porters 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">19:00 – 21:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">🎄 聖誕市集點燈</span>
+                            <strong>橫濱紅磚倉庫聖誕市集</strong>
+                            <p>感受濃厚聖誕木屋市集氣氛與海港燈飾（燈光時間：16:00 – 23:00）。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+Red+Brick+Warehouse" target="_blank" rel="noopener noreferrer">🗺️ 紅磚倉庫導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">晚餐 / 宵夜</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">便利商店輕食</span>
+                            <strong>7-Eleven / FamilyMart</strong>
+                            <p>採買日本便利商店人氣點心與熱食回酒店享用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 4 天 -->
+            <div id="day-4" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 4｜12月01日（星期二）搬往京橋・銀座購物・丸之內夜景</span>
+                    <span class="badge badge-bus">🍂 銀杏與香檳金燈海</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">✨</div>
+                        <div>
+                            <strong>當日行程所在地：橫濱 → 東京京橋・銀座・丸之內</strong>
+                            <p style="font-size: 0.9rem;">晴朗乾爽｜晚間漫步丸之內仲通賞銀杏與燈飾，注意晚間保暖</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：7°C – 14°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">09:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">辦理退房</span>
+                            <strong>SOTETSU HOTELS THE SPLAISIR YOKOHAMA 退房</strong>
+                            <p>整理行李辦理退房手續。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">09:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">早餐</span>
+                            <strong>Flour + Water 橫濱</strong>
+                            <p>享用精緻烘焙麵包早午餐。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Flour+and+Water+Yokohama" target="_blank" rel="noopener noreferrer">🗺️ Flour + Water 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-time">早餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-train">京急線直通都營淺草線</span>
+                            <strong>橫濱站 → 京急線 → 寶町站</strong>
+                            <p>實際直通班次及換乘待確認。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Takaracho+Station+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 寶町站導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">14:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">酒店入住</span>
+                            <strong>REMM TOKYO KYOBASHI（レム東京京橋）</strong>
+                            <p>提早到達時的行李寄存安排待酒店確認。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=remm+Tokyo+Kyobashi" target="_blank" rel="noopener noreferrer">🗺️ 京橋飯店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">京橋購物</span>
+                            <strong>mont-bell Tokyo Kyobashi</strong>
+                            <p>選購日本戶外機能服飾與裝備。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=mont-bell+Tokyo+Kyobashi" target="_blank" rel="noopener noreferrer">🗺️ mont-bell 京橋店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">銀座購物</span>
+                            <strong>Marronnier Gate Ginza 1、MUJI GINZA、銀座 LOFT</strong>
+                            <p>逛銀座旗艦生活雜貨、無印良品世界旗艦店與 Marronnier Gate。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Marronnier+Gate+Ginza+1" target="_blank" rel="noopener noreferrer">🗺️ Marronnier Gate 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=MUJI+GINZA" target="_blank" rel="noopener noreferrer">🗺️ MUJI GINZA 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Ginza+LOFT" target="_blank" rel="noopener noreferrer">🗺️ 銀座 LOFT 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">20:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">已預約晚餐</span>
+                            <strong>Gyuan 銀座牛庵</strong>
+                            <p>品嚐銀座神戶牛與黑毛和牛料理。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Gyuan+Ginza" target="_blank" rel="noopener noreferrer">🗺️ 銀座牛庵導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">晚上時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-bus">🍂 銀杏與聖誕燈飾</span>
+                            <strong>行幸通、丸之內仲通燈飾及銀杏大道</strong>
+                            <p>漫步香檳金燈海與銀杏並木（燈飾至23:00）。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Marunouchi+Naka-dori+Street" target="_blank" rel="noopener noreferrer">🗺️ 丸之內仲通導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 5 天 -->
+            <div id="day-5" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 5｜12月02日（星期三）外苑銀杏・表參道・澀谷</span>
+                    <span class="badge badge-bus">🍂 外苑金黃銀杏並木</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🍂</div>
+                        <div>
+                            <strong>當日行程所在地：明治神宮外苑・表參道・澀谷</strong>
+                            <p style="font-size: 0.9rem;">晴朗微冷｜早上 9 點外苑賞銀杏氣溫較低，建議穿戴保暖外套與圍巾</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：7°C – 13°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">09:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-bus">🍂 銀杏名所</span>
+                            <strong>明治神宮外苑銀杏</strong>
+                            <p>晨間漫步金黃色銀杏並木大道拍照留念。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Gaien+Ginkgo+Avenue" target="_blank" rel="noopener noreferrer">🗺️ 神宮外苑銀杏導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">10:30（09:45要到場）</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">午餐</span>
+                            <strong>廻転鮨 銀座おのでら 本店</strong>
+                            <div class="tip-box">💡 貼心提醒：09:45要到場。</div>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Ginza+Onodera+Kaiten+Sushi" target="_blank" rel="noopener noreferrer">🗺️ 銀座おのでら 本店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">表參道購物</span>
+                            <strong>表參道：seeen Harajuku（藝術畫廊）、Kiddy Land、THANK YOU MART、@cosme TOKYO、and ST TOKYO</strong>
+                            <p>沿著表參道與原宿一帶參觀 seeen 藝術畫廊、採買角色周邊、雜貨與美妝。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=seeen+Harajuku" target="_blank" rel="noopener noreferrer">🗺️ seeen 畫廊導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku" target="_blank" rel="noopener noreferrer">🗺️ Kiddy Land 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=cosme+TOKYO+Harajuku" target="_blank" rel="noopener noreferrer">🗺️ @cosme TOKYO 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午時段</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物</span>
+                            <strong>澀谷 PARCO</strong>
+                            <p>逛澀谷 PARCO 各大主題專區。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Shibuya+PARCO" target="_blank" rel="noopener noreferrer">🗺️ 澀谷 PARCO 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午茶</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">下午茶</span>
+                            <strong>Excelsior Caffé</strong>
+                            <p>於 Excelsior Caffé 享用下午茶歇腳。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Excelsior+Caffe+Shibuya" target="_blank" rel="noopener noreferrer">🗺️ Excelsior Caffé 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午至晚上</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">澀谷採購</span>
+                            <strong>VILLAGE VANGUARD、#C-pla SHIBUYA109澀谷店、澀谷 MEGA Donki</strong>
+                            <p>一次逛齊趣味雜貨、扭蛋與 MEGA 唐吉訶德。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=MEGA+Don+Quijote+Shibuya+Honten" target="_blank" rel="noopener noreferrer">🗺️ 澀谷 MEGA Donki 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=SHIBUYA109" target="_blank" rel="noopener noreferrer">🗺️ SHIBUYA109 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">20:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">晚餐</span>
+                            <strong>クシヤキ肉男 Meat Man</strong>
+                            <p>享用人氣創意串燒料理。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Meat+Man+Roppongi" target="_blank" rel="noopener noreferrer">🗺️ 肉男 Meat Man 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 6 天 -->
+            <div id="day-6" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 6｜12月03日（星期四）羊駝體驗・麻布台・六本木</span>
+                    <span class="badge badge-must">🎄 聖誕市集與櫸坂光廊</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🎄</div>
+                        <div>
+                            <strong>當日行程所在地：神樂坂（羊駝）・麻布台・六本木</strong>
+                            <p style="font-size: 0.9rem;">晴時多雲｜包含羊駝戶外散步與夜間六本木櫸坂光廊，早晚請注意保暖</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：6°C – 13°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">早餐</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">早餐</span>
+                            <strong>DOUTOR Coffee ドトールコーヒーショップ 京橋２丁目店</strong>
+                            <p>在酒店附近享用溫暖咖啡與早餐。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Doutor+Coffee+Shop+Kyobashi+2-chome" target="_blank" rel="noopener noreferrer">🗺️ DOUTOR 京橋店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">10:25 – 11:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">活動</span>
+                            <strong>Alpaca Fureai Land／アルパカふれあいランド，散步方案（お散步プラン）</strong>
+                            <p>與可愛軟綿羊駝體驗近距離散步互動。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Alpaca+Fureai+Land+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 羊駝樂園導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">13:15 – 14:45</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">午餐</span>
+                            <strong>Balcony by 6th</strong>
+                            <p>享用人氣料理與甜點。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Balcony+by+6th+Azabudai+Hills" target="_blank" rel="noopener noreferrer">🗺️ Balcony by 6th 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物</span>
+                            <strong>FAMIMA FLAGSHIP STORE</strong>
+                            <p>逛麻布台 Hills 內的全家便利商店概念旗艦店。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Famima+Azabudai+Hills" target="_blank" rel="noopener noreferrer">🗺️ FAMIMA 旗艦店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">15:00 起</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">活動</span>
+                            <strong>麻布台 Hills 聖誕市集（21:00 關門）</strong>
+                            <p>感受東京冬日聖誕市集氛圍。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Azabudai+Hills" target="_blank" rel="noopener noreferrer">🗺️ 麻布台 Hills 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">散策</span>
+                            <strong>六本木之丘 Roppongi Hills</strong>
+                            <p>漫步六本木之丘商圈。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Roppongi+Hills" target="_blank" rel="noopener noreferrer">🗺️ 六本木之丘導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">18:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">晚餐</span>
+                            <strong>L’Atelier de Joël Robuchon</strong>
+                            <p>於六本木享用米其林法式美食饗宴。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=L'Atelier+de+Joel+Robuchon+Roppongi" target="_blank" rel="noopener noreferrer">🗺️ 侯布雄餐廳導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">晚餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-flight">夜景</span>
+                            <strong>六本木櫸坂燈飾／光廊</strong>
+                            <p>利用六本木站 1C 出口、22:00 結束。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Roppongi+Keyakizaka+Dori" target="_blank" rel="noopener noreferrer">🗺️ 六本木櫸坂導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 7 天 -->
+            <div id="day-7" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 7｜12月04日（星期五）小網神社・自助餐・新宿御苑</span>
+                    <span class="badge badge-must">🍁 御苑紅葉與銀杏</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🍁</div>
+                        <div>
+                            <strong>當日行程所在地：日本橋・紀尾井町・新宿</strong>
+                            <p style="font-size: 0.9rem;">晴朗適合賞楓｜新宿御苑開闊處風略涼，16:00 閉園後轉入室內百貨購物</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：6°C – 13°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">09:00（08:30要到場）</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">參拜</span>
+                            <strong>小網神社 Koami Shrine</strong>
+                            <p>08:30要到場參拜。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Koami+Shrine+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 小網神社導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">11:30 – 13:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">午餐</span>
+                            <strong>View &amp; Dining The Sky</strong>
+                            <p>高空景觀百匯自助餐。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=VIEW+%26+DINING+THE+SKY+Hotel+New+Otani+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ The Sky 餐廳導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">14:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-bus">賞景</span>
+                            <strong>新宿御苑銀杏及楓葉（千駄谷門入口）</strong>
+                            <p>「閉園」時間 16:00。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Shinjuku+Gyoen+Sendagaya+Gate" target="_blank" rel="noopener noreferrer">🗺️ 新宿御苑（千駄谷門）導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">御苑後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">購物</span>
+                            <strong>BEAMS JAPAN、LOCUST、BIC CAMERA、Onitsuka Tiger Shinjuku</strong>
+                            <p>於新宿商圈盡情逛街採買。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=BEAMS+JAPAN+Shinjuku" target="_blank" rel="noopener noreferrer">🗺️ BEAMS JAPAN 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bic+Camera+Shinjuku+East+Exit" target="_blank" rel="noopener noreferrer">🗺️ BIC CAMERA 新宿導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">20:00 – 22:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">晚餐</span>
+                            <strong>木曽路 新宿三丁目店</strong>
+                            <p>品嚐頂級和牛涮涮鍋與壽喜燒。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Kiso-ji+Shinjuku+3-chome" target="_blank" rel="noopener noreferrer">🗺️ 木曽路 新宿三丁目導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 8 天 -->
+            <div id="day-8" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 8｜12月05日（星期六）皇居乾通公開・東京站／八重洲・原宿</span>
+                    <span class="badge badge-must">🍁 皇居乾通賞楓</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🏯</div>
+                        <div>
+                            <strong>當日行程所在地：皇居・東京站／八重洲・原宿・表參道</strong>
+                            <p style="font-size: 0.9rem;">乾爽舒適｜皇居乾通與原宿表參道皆為步行行程，建議穿著舒適好走鞋子</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：6°C – 12°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">09:00 起</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">活動</span>
+                            <strong>皇居乾通一般公開，坂下門入口</strong>
+                            <p>15:00 關門，須再區分入場截止與離場時間。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Sakashita-mon+Gate+Imperial+Palace+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 皇居坂下門導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">11:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">午餐</span>
+                            <strong>根室花まる KITTE 店</strong>
+                            <p>享用北海道人氣壽司。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Nemuro+Hanamaru+KITTE+Marunouchi" target="_blank" rel="noopener noreferrer">🗺️ 根室花まる KITTE 店導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">東京站購物</span>
+                            <strong>東京站一番街</strong>
+                            <p>逛東京動漫人物街與伴手禮專區。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=First+Ave+Tokyo+Station" target="_blank" rel="noopener noreferrer">🗺️ 東京站一番街導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">八重洲購物</span>
+                            <strong>Tokyo Midtown Yaesu：Onitsuka Tiger NIPPON、TO&amp;FRO；Tofrom Yaesu Tower</strong>
+                            <p>探索東京八重洲商圈精選店鋪。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Midtown+Yaesu" target="_blank" rel="noopener noreferrer">🗺️ Midtown Yaesu 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">原宿購物</span>
+                            <strong>UNITED ARROWS Harajuku、Onitsuka Tiger Omotesandō、3COINS Store、HUMAN MADE TOKYO</strong>
+                            <p>漫步原宿與表參道潮流店鋪。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=HUMAN+MADE+OFFLINE+STORE+TOKYO" target="_blank" rel="noopener noreferrer">🗺️ HUMAN MADE 導航</a>
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=3COINS+Harajuku" target="_blank" rel="noopener noreferrer">🗺️ 3COINS 原宿導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">20:00 – 21:00</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">晚餐</span>
+                            <strong>tonkatsu.jp（炸豬排）</strong>
+                            <p>品嚐精選銘柄豚炸豬排。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=tonkatsu.jp+Omotesando" target="_blank" rel="noopener noreferrer">🗺️ tonkatsu.jp 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 9 天 -->
+            <div id="day-9" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 9｜12月06日（星期日）本所防災體驗・淺草・高輪</span>
+                    <span class="badge badge-spot">🏮 下町淺草風情</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🏮</div>
+                        <div>
+                            <strong>當日行程所在地：錦糸町（押上）・淺草・高輪 Gateway</strong>
+                            <p style="font-size: 0.9rem;">晴時多雲｜防災體驗可能接觸水霧或風力模擬，建議穿著輕便好活動衣物</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：6°C – 12°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">09:10 – 10:55</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">體驗</span>
+                            <strong>東京消防廳 本所防災館：自然災害課程</strong>
+                            <div class="tip-box">💡 貼心提醒：08:50要到場。</div>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Honjo+Life+Safety+Learning+Center+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 本所防災館導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">12:30 – 14:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-food">午餐</span>
+                            <strong>淺草今半 国際通り本店</strong>
+                            <p>品嚐百年老店黑毛和牛壽喜燒。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Asakusa+Imahan+Kokusai-dori+Honten" target="_blank" rel="noopener noreferrer">🗺️ 淺草今半導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">午餐後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">參拜／購物</span>
+                            <strong>淺草寺；BEAMS</strong>
+                            <p>參拜雷門淺草寺並逛街選購特色伴手禮。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Senso-ji+Tokyo" target="_blank" rel="noopener noreferrer">🗺️ 淺草寺導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">下午至晚上</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">散策／購物</span>
+                            <strong>高輪 Gateway：NEWoMan TAKANAWA（店舖：kurun TOKYO、茅乃舍 ニュウマン高輪店）；MoN Takanawa Museum</strong>
+                            <p>探索高輪 Gateway 新商圈與店鋪。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Takanawa+Gateway+Station" target="_blank" rel="noopener noreferrer">🗺️ 高輪 Gateway 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">晚餐</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-food">晚餐</span>
+                            <strong>自由安排</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第 10 天 -->
+            <div id="day-10" class="itinerary-container">
+                <div class="day-header">
+                    <span>Day 10｜12月07日（星期一）酒々井 Outlet・成田返港</span>
+                    <span class="badge badge-flight">🛍️ 滿載賦歸</span>
+                </div>
+                <div class="weather-banner">
+                    <div class="weather-left">
+                        <div class="weather-icon-box">🛍️</div>
+                        <div>
+                            <strong>當日行程所在地：東京站 → 千葉酒々井 Outlet → 成田機場</strong>
+                            <p style="font-size: 0.9rem;">晴朗微涼｜酒々井 Outlet 為半戶外園區，逛街時請穿著防風外套</p>
+                        </div>
+                    </div>
+                    <span class="weather-temp-pill">預估氣溫：5°C – 12°C</span>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">08:30</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-spot">退房</span>
+                            <strong>REMM TOKYO KYOBASHI 退房</strong>
+                            <p>退房後攜同行李前往東京站。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-time">09:20 – 10:15</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-bus">交通</span>
+                            <strong>東京站 → 酒々井 Premium Outlets</strong>
+                            <p>東京八重洲巴士總站，地下A層A02乘車處；班次及站位待確認。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bus+Terminal+Tokyo+Yaesu" target="_blank" rel="noopener noreferrer">🗺️ 東京八重洲巴士總站導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-coral"></div>
+                        <div class="timeline-time">10:15 後</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-must">必去</span>
+                            <span class="badge badge-spot">購物</span>
+                            <strong>Shisui Premium Outlets（酒々井 Outlet）</strong>
+                            <p>預先確認行李寄存及午餐安排。</p>
+                            <div class="map-btn-row">
+                                <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Shisui+Premium+Outlets" target="_blank" rel="noopener noreferrer">🗺️ 酒々井 Outlet 導航</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker marker-green"></div>
+                        <div class="timeline-time">14:15 – 14:33</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-bus">交通</span>
+                            <strong>Outlet 接駁巴士 → 成田機場第二客運大樓</strong>
+                            <p>按最新原表保留：Outlet 接駁巴士 → 成田機場第二客運大樓。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">16:55 – 21:20</div>
+                        <div class="timeline-content">
+                            <span class="badge badge-flight">航班</span>
+                            <strong>香港快運 UO871：成田 NRT T2 → 香港 HKG T1</strong>
+                            <p>滿載戰利品與美好回憶平安返抵香港！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 手繪銀杏・紅葉・燈球分隔線 SVG -->
+        <svg class="section-divider-svg" viewBox="0 0 260 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="14" x2="85" y2="14" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="105" cy="14" r="6" fill="#F4A69A" stroke="#3E3A39" stroke-width="2.5"/>
+            <path d="M130 22 C123 22 120 15 124 10 C127 12 130 12 130 9 C130 12 133 12 136 10 C140 15 137 22 130 22 Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.2"/>
+            <circle cx="155" cy="14" r="6" fill="#A4D4EC" stroke="#3E3A39" stroke-width="2.5"/>
+            <line x1="175" y1="14" x2="250" y2="14" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+        <!-- 4.2 隨身購物記帳本（8 項精確分類） -->
+        <section id="shopping-sec" class="card">
+            <svg class="corner-deco" viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30 C12 30 9 21 14 14 C17 17 20 17 20 13 C20 17 23 17 26 14 C31 21 28 30 20 30 Z" fill="#FAD77B" stroke="#3E3A39" stroke-width="2.5"/>
+                <polygon points="44,8 47,15 54,15 48,19 50,26 44,22 38,26 40,19 34,15 41,15" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+            </svg>
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="8" width="20" height="17" rx="5" fill="#F4A69A" stroke="#3E3A39" stroke-width="3"/>
+                    <path d="M9 8V6C9 3.8 10.8 2 13 2H15C17.2 2 19 3.8 19 6V8" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="14" cy="16.5" r="4" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.2"/>
+                </svg>
+                <span>隨身購物記帳本（自動換算港幣）</span>
+            </h2>
+            <p style="margin-bottom: 14px;">記錄每一筆戰利品、手信與美食花費，自動連動匯率計算港幣金額，並追蹤預算進度：</p>
+
+            <div class="budget-summary-grid">
+                <div class="stat-card subcard-yellow">
+                    <div class="stat-label">累積日圓總花費</div>
+                    <div class="stat-value" id="total-jpy-display">¥0</div>
+                </div>
+                <div class="stat-card subcard-sky">
+                    <div class="stat-label">折合港幣總計</div>
+                    <div class="stat-value" id="total-hkd-display">HK$ 0.00</div>
+                </div>
+                <div class="stat-card subcard-snow">
+                    <div class="stat-label">已記錄筆數 / 免稅</div>
+                    <div class="stat-value" id="total-count-display">0 筆 (0 免稅)</div>
+                </div>
+            </div>
+
+            <div class="budget-bar-wrapper">
+                <div class="budget-bar-top">
+                    <span>🎯 購物總預算進度（日圓）：<span id="budget-percent-text">0%</span></span>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <label for="budget-limit-input" style="font-size: 0.88rem;">預算上限 ¥</label>
+                        <input type="number" id="budget-limit-input" value="200000" step="10000" style="width: 115px; padding: 4px 8px; border: 2px solid var(--color-ink); border-radius: 10px; font-family: inherit; font-weight: bold; background-color: var(--bg-yellow);" oninput="updateBudgetLimit()">
+                    </div>
+                </div>
+                <div class="budget-track">
+                    <div class="budget-fill" id="budget-fill-bar"></div>
+                </div>
+            </div>
+
+            <div class="fx-box">
+                <div class="subcard-title">
+                    <span>✍️ 新增一筆消費紀錄</span>
+                    <span class="badge badge-food">自動儲存於本機</span>
+                </div>
+                <div class="expense-form-grid">
+                    <div class="fx-input-group">
+                        <label for="exp-day">📅 消費日期 / 天數</label>
+                        <select id="exp-day" class="expense-select">
+                            <option value="Day 1 (11/28 橫濱)">Day 1 (11/28 橫濱)</option>
+                            <option value="Day 2 (11/29 港未來)">Day 2 (11/29 港未來)</option>
+                            <option value="Day 3 (11/30 紅磚倉庫)">Day 3 (11/30 紅磚倉庫)</option>
+                            <option value="Day 4 (12/01 東京站/銀座)">Day 4 (12/01 東京站/銀座)</option>
+                            <option value="Day 5 (12/02 表參道/澀谷)">Day 5 (12/02 表參道/澀谷)</option>
+                            <option value="Day 6 (12/03 麻布台/六本木)">Day 6 (12/03 麻布台/六本木)</option>
+                            <option value="Day 7 (12/04 新宿)">Day 7 (12/04 新宿)</option>
+                            <option value="Day 8 (12/05 原宿/表參道)">Day 8 (12/05 原宿/表參道)</option>
+                            <option value="Day 9 (12/06 淺草/高輪)">Day 9 (12/06 淺草/高輪)</option>
+                            <option value="Day 10 (12/07 酒々井Outlet)">Day 10 (12/07 酒々井Outlet)</option>
+                        </select>
+                    </div>
+                    <div class="fx-input-group">
+                        <label for="exp-cat">🏷️ 分類標籤（依指定8項）</label>
+                        <select id="exp-cat" class="expense-select">
+                            <option value="交通車費">🚌 交通車費</option>
+                            <option value="美食餐飲">🍱 美食餐飲</option>
+                            <option value="服飾鞋包">👗 服飾鞋包</option>
+                            <option value="美妝藥妝">💄 美妝藥妝</option>
+                            <option value="扭蛋公仔">🔮 扭蛋公仔</option>
+                            <option value="Souvenir">🎁 Souvenir</option>
+                            <option value="Pool">🏊 Pool</option>
+                            <option value="Others">⚙️ Others</option>
+                        </select>
+                    </div>
+                    <div class="fx-input-group">
+                        <label for="exp-name">🛍️ 商品或店鋪名稱</label>
+                        <input type="text" id="exp-name" class="fx-input" placeholder="例如：藥妝、紀念品、球鞋">
+                    </div>
+                    <div class="fx-input-group">
+                        <label for="exp-jpy">💴 日圓金額 (JPY ¥)</label>
+                        <input type="number" id="exp-jpy" class="fx-input" placeholder="例如：12000">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 6px;">
+                    <label style="display: inline-flex; align-items: center; gap: 8px; font-weight: bold; cursor: pointer;">
+                        <input type="checkbox" id="exp-taxfree" style="width: 20px; height: 20px; accent-color: var(--color-coral);">
+                        <span>✨ 此筆為免稅購物 (Tax-Free)</span>
+                    </label>
+                    <button class="action-btn action-btn-primary" style="margin-top: 0;" onclick="addExpense()">➕ 加入購物記帳本</button>
+                </div>
+            </div>
+
+            <div class="expense-list-container" id="expense-list"></div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+                <button class="action-btn" onclick="exportExpensesCSV()">📥 匯出記帳明細 (.csv)</button>
+                <button class="action-btn" onclick="clearAllExpenses()">🗑️ 清空所有記帳紀錄</button>
+            </div>
+        </section>
+
+        <!-- 4.5 日圓匯率換算小工具 -->
+        <section id="fx-sec" class="card">
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="24" height="24" rx="8" fill="#C2E0B4" stroke="#3E3A39" stroke-width="3"/>
+                    <circle cx="14" cy="14" r="7" fill="#FEECA6" stroke="#3E3A39" stroke-width="2.5"/>
+                    <path d="M11.5 10.5L14 14L16.5 10.5M11.5 14H16.5M11.5 16.5H16.5M14 14V18.5" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>隨身日圓匯率換算小工具</span>
+            </h2>
+            <p style="margin-bottom: 14px;">修改匯率會同步更新上方購物記帳本的換算金額：</p>
+            <div class="grid-2">
+                <div class="fx-box">
+                    <div class="fx-input-group">
+                        <label for="jpy-input">🇯🇵 日圓金額 (JPY ¥)</label>
+                        <input type="number" id="jpy-input" class="fx-input" value="10000" oninput="convertFromJPY()">
+                    </div>
+                    <div class="fx-quick-btns">
+                        <button class="fx-quick-btn" onclick="setJPY(1000)">¥1,000</button>
+                        <button class="fx-quick-btn" onclick="setJPY(3000)">¥3,000</button>
+                        <button class="fx-quick-btn" onclick="setJPY(5500)">¥5,500 (免稅門檻)</button>
+                        <button class="fx-quick-btn" onclick="setJPY(10000)">¥10,000</button>
+                    </div>
+                </div>
+                <div class="fx-box" style="background-color: var(--bg-sky);">
+                    <div class="fx-input-group">
+                        <label for="hkd-input">🇭🇰 港幣金額 (HKD $)</label>
+                        <input type="number" id="hkd-input" class="fx-input" oninput="convertFromHKD()">
+                    </div>
+                    <div class="fx-input-group" style="margin-bottom: 0;">
+                        <label for="rate-input">⚙️ 匯率設定（每 1 日圓兌換港幣，預設 0.052）</label>
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 4px 0 6px 0;">
+                            <button type="button" class="action-btn action-btn-primary" id="fetch-rate-btn" style="padding: 6px 14px; font-size: 0.9rem; margin: 0;" onclick="fetchLiveExchangeRate()">⚡ 取得當下即時匯率</button>
+                            <span id="rate-last-updated" style="font-size: 0.85rem; font-weight: bold; background-color: var(--bg-yellow); padding: 4px 10px; border: 2px solid var(--color-ink); border-radius: 10px;">🕒 上次更新：載入中...</span>
+                        </div>
+                        <input type="number" id="rate-input" class="fx-input" step="0.0001" value="0.0520" oninput="updateRate(true)">
+                        <small id="rate-status-msg" style="font-size: 0.82rem; color: #3E3A39; margin-top: 4px; display: block;">💡 點擊「⚡ 取得當下即時匯率」可隨時連線更新最新 JPY → HKD 匯率</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 住宿資訊與交通指引 (Access) -->
+        <section id="hotels" class="card">
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 13L14 4L24 13V24H4V13Z" fill="#F4A69A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+                    <rect x="11" y="16" width="6" height="8" fill="#FFFDF9" stroke="#3E3A39" stroke-width="2.5"/>
+                </svg>
+                <span>住宿資訊與交通指引 (Access)</span>
+            </h2>
+            <div class="grid-2">
+                <div class="subcard subcard-yellow">
+                    <div class="subcard-title">🏨 橫濱住宿（3 晚｜11/28 – 12/01）</div>
+                    <p style="font-size: 1rem; margin-bottom: 6px;"><strong>相鉄ホテルズ ザ・スプラジール 横浜</strong></p>
+                    <p style="font-size: 0.88rem; opacity: 0.8; margin-bottom: 10px;">SOTETSU HOTELS THE SPLAISIR YOKOHAMA</p>
+                    <div style="font-size: 0.92rem; background: #fff; padding: 12px; border: 2px solid var(--color-ink); border-radius: 14px; margin-bottom: 12px;">
+                        <strong>🗺️ 交通指引 (由成田機場 Terminal 2 前往)：</strong><br>
+                        1. 於成田機場第二客運大樓 JR 地下月台搭乘 <strong>JR 成田特快 (Narita Express / N’EX)</strong> 直達橫濱站（車程約 90 分鐘，無需轉車）。<br>
+                        2. 抵達橫濱站後，往<strong>「北西口」</strong>方向出站，直接走相連的有蓋行人天橋步行約 3 分鐘，即可直通進入「THE YOKOHAMA FRONT」大樓抵達飯店大廳！
+                    </div>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=SOTETSU+HOTELS+THE+SPLAISIR+YOKOHAMA" target="_blank" rel="noopener noreferrer">🗺️ 橫濱飯店 Google 地圖</a>
+                    </div>
+                </div>
+                <div class="subcard subcard-ice">
+                    <div class="subcard-title">🏨 東京京橋住宿（6 晚｜12/01 – 12/07）</div>
+                    <p style="font-size: 1rem; margin-bottom: 6px;"><strong>レム東京京橋</strong></p>
+                    <p style="font-size: 0.88rem; opacity: 0.8; margin-bottom: 10px;">REMM TOKYO KYOBASHI</p>
+                    <div style="font-size: 0.92rem; background: #fff; padding: 12px; border: 2px solid var(--color-ink); border-radius: 14px; margin-bottom: 12px;">
+                        <strong>🗺️ 交通指引 (由橫濱站前往)：</strong><br>
+                        1. <strong>最方便：</strong>於橫濱站搭乘 <strong>JR 東海道線</strong> 或 <strong>JR 横須賀線</strong> 直達東京站（車程約 25–30 分鐘），自東京站八重洲南口出站步行約 6–8 分鐘即達。<br>
+                        2. <strong>少走路：</strong>於橫濱站搭乘京急本線（直通都營淺草線）至「寶町站」出站步行 2 分鐘；或搭東京地下鐵銀座線至<strong>「京橋站」6 號出口</strong>，出站即是飯店大門！
+                    </div>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=remm+Tokyo+Kyobashi" target="_blank" rel="noopener noreferrer">🗺️ 京橋飯店 Google 地圖</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 旅遊自訂待辦事項 (已移至住宿 section 後，純自訂輸入) -->
+        <section id="checklist" class="card">
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="22" height="22" rx="7" fill="#C2E0B4" stroke="#3E3A39" stroke-width="3"/>
+                    <path d="M8 14.5L12 18.5L20 10" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>旅遊自訂待辦事項</span>
+            </h2>
+            <p style="margin-bottom: 14px;">在下方輸入自訂項目，並隨時勾選（系統會自動儲存在您的手機或電腦中）：</p>
+            
+            <div class="todo-input-row">
+                <input type="text" id="new-todo-text" class="fx-input" style="flex: 1;" placeholder="請輸入待辦事項，例如：換日元、填寫 Visit Japan Web..." onkeydown="if(event.key==='Enter') addTodo()">
+                <button class="action-btn action-btn-primary" style="margin-top: 0;" onclick="addTodo()">➕ 新增事項</button>
+            </div>
+
+            <div class="todo-grid" id="todo-list-container">
+                <!-- 自訂待辦項目將動態生成於此 -->
+            </div>
+            
+            <button class="action-btn" style="margin-top: 14px;" onclick="clearAllTodos()">🔄 清空所有待辦事項</button>
+        </section>
+
+        <!-- 7. 隨身醫療與緊急求助資訊 (已逐項核實，附地圖與官方網頁連結) -->
+        <section id="help" class="card">
+            <h2 class="section-title">
+                <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="22" height="22" rx="7" fill="#FCEFEF" stroke="#3E3A39" stroke-width="3"/>
+                    <path d="M14 8V20M8 14H20" stroke="#F4A69A" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+                <span>隨身醫療與緊急求助資訊（已逐項核實）</span>
+            </h2>
+            <div class="grid-2">
+                <div class="subcard subcard-snow">
+                    <div class="subcard-title">🏥 1｜橫濱 Front 診所（Yokohama Front Clinic）</div>
+                    <p><strong>正式名稱：</strong>横浜フロントクリニック／Yokohama Front Clinic</p>
+                    <p>📞 <strong>電話：</strong><a href="tel:0455770121" style="color: var(--color-ink); font-weight: bold;">045-577-0121</a></p>
+                    <p>📍 <strong>地址：</strong>〒221-0835 神奈川県横浜市神奈川区鶴屋町一丁目41番地 THE YOKOHAMA FRONT 3樓301-C</p>
+                    <p>⏳ <strong>診症及休診：</strong>星期一至六 09:00–12:30、14:00–18:00。每節結束前30分鐘停止掛號（12:00／17:30）。星期日及日本公眾假期休診。</p>
+                    <p>🚶 <strong>交通及初診：</strong>橫濱站西口平台連接，步行約1分鐘。初診應先預約；有新症狀先致電交代情況。</p>
+                    <p>🌐 <strong>語言服務：</strong>英文：英語傳譯員當值時可經傳譯診症；中文：官網列 MELON 醫療 AI 翻譯，非保證有真人中文傳譯。</p>
+                    <p>⚠️ <strong>影像及限制：</strong>官網確認有 80 列 CT。普通胸部 X 光即時安排尚未另行確認；不可由「有CT」推論為隨時可照胸片或接受疑似氣胸急症。</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+Front+Clinic" target="_blank" rel="noopener noreferrer">🗺️ 診所地圖導航</a>
+                        <a class="map-btn" href="https://yokohamafront-clinic.jp/access.html" target="_blank" rel="noopener noreferrer">🌐 診所交通指南</a>
+                        <a class="map-btn" href="https://yf-clinic.mdja.jp/" target="_blank" rel="noopener noreferrer">🌐 預約頁面</a>
+                    </div>
+                    <hr style="margin: 14px 0; border: none; border-top: 2px dashed var(--color-ink);">
+                    <div class="subcard-title">🏥 2｜橫濱市立港灣紅十字醫院</div>
+                    <p><strong>正式名稱：</strong>横浜市立みなと赤十字病院 Yokohama City Minato Red Cross Hospital</p>
+                    <p>📞 <strong>總機電話：</strong><a href="tel:0456286100" style="color: var(--color-ink); font-weight: bold;">045-628-6100</a></p>
+                    <p>📍 <strong>正確地址：</strong>〒231-8682 神奈川県横浜市中区新山下3丁目12番1号</p>
+                    <p>🚨 <strong>救急服務：</strong>24小時、365日醫療體制，設救急部。不代表任何時間自行到場都保證立即接診或接受指定檢查；時間外檢查可能有限制。</p>
+                    <p>⏰ <strong>普通門診：</strong>掛號 08:15–11:00；診症 09:00–16:00。星期六、日及日本公眾假期普通門診休診（不等於救急服務關閉）。</p>
+                    <p>🌐 <strong>語言及就診：</strong>未核實中英文傳譯值班時段，不應寫作24小時保證。非緊急自行前往前先致電總機確認接診、影像及語言安排；緊急時直接致電 119。</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Yokohama+City+Minato+Red+Cross+Hospital" target="_blank" rel="noopener noreferrer">🗺️ 醫院地圖導航</a>
+                        <a class="map-btn" href="https://www.yokohama.jrc.or.jp/" target="_blank" rel="noopener noreferrer">🌐 醫院官方網站</a>
+                        <a class="map-btn" href="https://www.yokohama.jrc.or.jp/medical_part/med/emergency/" target="_blank" rel="noopener noreferrer">🌐 救急部指引</a>
+                    </div>
+                </div>
+                <div class="subcard subcard-milktea">
+                    <div class="subcard-title">🏥 3｜MARU東京站鐵鋼大樓分院</div>
+                    <p><strong>正式名稱：</strong>MARU by Tokyo Business Clinic</p>
+                    <p>📞 <strong>電話：</strong><a href="tel:0362699475" style="color: var(--color-ink); font-weight: bold;">03-6269-9475</a></p>
+                    <p>📍 <strong>地址：</strong>〒100-0005 東京都千代田区丸の内1丁目8番2号 鉄鋼ビルディング1樓</p>
+                    <p>⏰ <strong>診症時間：</strong>每日 09:00–21:00；全年無休，包括星期六、日及日本公眾假期。</p>
+                    <p>🚶 <strong>交通：</strong>東京站八重洲北口步行約3分鐘。</p>
+                    <p>🩻 <strong>胸部X光：</strong>官方英文檢查頁確認提供胸部 X 光；但不保證任何時段即時檢查。</p>
+                    <p>⚠️ <strong>用途及限制：</strong>門診後備，非急症室。先致電確認是否接收當時症狀、能否安排胸片，以及有否真人中文／英文服務；有英文網站不等於每節都有語言服務。疑似氣胸急症的即時處理能力不可單憑健康檢查服務推定。</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=MARU+by+Tokyo+Business+Clinic" target="_blank" rel="noopener noreferrer">🗺️ 診所地圖導航</a>
+                        <a class="map-btn" href="https://www.maru.clinic/en/" target="_blank" rel="noopener noreferrer">🌐 診所英文官網</a>
+                    </div>
+                    <hr style="margin: 14px 0; border: none; border-top: 2px dashed var(--color-ink);">
+                    <div class="subcard-title">📞 求助電話速查（先按情況選擇途徑）</div>
+                    <p>🚨 <strong>日本緊急救護／消防：</strong> <a href="tel:119" style="color: var(--color-ink); font-weight: bold;">119</a>（緊急情況直接使用，非香港999；不要等門診開門或為尋找指定語言而延誤）</p>
+                    <p>📞 <strong>橫濱／神奈川救急諮詢：</strong> <a href="tel:7119" style="color: var(--color-ink); font-weight: bold;">#7119</a>（短碼不通撥：<a href="tel:0452327119">045-232-7119</a>／<a href="tel:0455237119">045-523-7119</a>；24小時365日，官方列中文/英文等14種語言電話傳譯）</p>
+                    <p>📞 <strong>東京23區救急諮詢：</strong> <a href="tel:7119" style="color: var(--color-ink); font-weight: bold;">#7119</a>（短碼不通撥：<a href="tel:0332122323">03-3212-2323</a>；24小時365日，適用東京站／京橋一帶；本次未確認有中英文傳譯保證，不可套用神奈川安排）</p>
+                    <p>📞 <strong>JNTO 訪日旅客熱線：</strong> <a href="tel:+815038162787" style="color: var(--color-ink); font-weight: bold;">050-3816-2787</a>（國際格式：+81-50-3816-2787；24小時365日，中英韓日語，協助介紹醫療機構，原則上不提供三方傳譯或代約，不代替119）</p>
+                    <p>🇭🇰 <strong>香港入境處境外求助：</strong> <a href="tel:+8521868" style="color: var(--color-ink); font-weight: bold;">+852 1868</a>（24小時求助；WhatsApp 可發送訊息至同一號碼，支援文字/相片/錄音/影片，不接聽WhatsApp通話，語音請撥普通電話或App網絡電話）</p>
+                    <div class="map-btn-row">
+                        <a class="map-btn" href="https://www.pref.kanagawa.jp/docs/t3u/kksc7119.html" target="_blank" rel="noopener noreferrer">🌐 神奈川縣救急諮詢</a>
+                        <a class="map-btn" href="https://www.tfd.metro.tokyo.lg.jp/lfe/kyuu_adv/soudan-center.html" target="_blank" rel="noopener noreferrer">🌐 東京消防廳救急諮詢</a>
+                        <a class="map-btn" href="https://www.japan.travel/hk/plan/hotline/" target="_blank" rel="noopener noreferrer">🌐 JNTO旅客熱線</a>
+                        <a class="map-btn" href="https://www.immd.gov.hk/hkt/services/designated_whatsapp_hotline.html" target="_blank" rel="noopener noreferrer">🌐 入境處WhatsApp熱線</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // 1. 出發倒數計時器 (目標：2026-11-28 09:20)
+        function updateCountdown() {
+            const departure = new Date("2026-11-28T09:20:00+08:00").getTime();
+            const now = new Date().getTime();
+            const diff = departure - now;
+            const days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+            document.getElementById("countdown-days").textContent = days;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000 * 60 * 30);
+
+        // 2. 每日行程切換功能
+        function switchDay(dayNum) {
+            const buttons = document.querySelectorAll('.day-btn');
+            const containers = document.querySelectorAll('.itinerary-container');
+
+            buttons.forEach((btn, idx) => {
+                if (idx === dayNum - 1) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            containers.forEach((cont, idx) => {
+                if (idx === dayNum - 1) {
+                    cont.classList.add('active');
+                } else {
+                    cont.classList.remove('active');
+                }
+            });
+        }
+
+        // 3. 匯率換算器功能
+        function getRate() {
+            const val = parseFloat(document.getElementById('rate-input').value);
+            return (!isNaN(val) && val > 0) ? val : 0.052;
+        }
+
+        function convertFromJPY() {
+            const jpy = parseFloat(document.getElementById('jpy-input').value);
+            const hkdInput = document.getElementById('hkd-input');
+            if (isNaN(jpy)) {
+                hkdInput.value = '';
+                return;
+            }
+            hkdInput.value = (jpy * getRate()).toFixed(2);
+        }
+
+        function convertFromHKD() {
+            const hkd = parseFloat(document.getElementById('hkd-input').value);
+            const jpyInput = document.getElementById('jpy-input');
+            if (isNaN(hkd)) {
+                jpyInput.value = '';
+                return;
+            }
+            jpyInput.value = Math.round(hkd / getRate());
+        }
+
+        function setJPY(amount) {
+            document.getElementById('jpy-input').value = amount;
+            convertFromJPY();
+        }
+
+        function getFormattedNow() {
+            const now = new Date();
+            const yyyy = now.getFullYear();
+            const mm = String(now.getMonth() + 1).padStart(2, '0');
+            const dd = String(now.getDate()).padStart(2, '0');
+            const hh = String(now.getHours()).padStart(2, '0');
+            const min = String(now.getMinutes()).padStart(2, '0');
+            const ss = String(now.getSeconds()).padStart(2, '0');
+            return `${yyyy}/${mm}/${dd} ${hh}:${min}:${ss}`;
+        }
+
+        function updateRate(isManual) {
+            const currentVal = document.getElementById('rate-input').value;
+            localStorage.setItem('jp2026_fx_rate', currentVal);
+            if (isManual) {
+                const manualTime = getFormattedNow() + ' (手動設定)';
+                localStorage.setItem('jp2026_fx_updated_time', manualTime);
+                const lastUpdatedEl = document.getElementById('rate-last-updated');
+                if (lastUpdatedEl) {
+                    lastUpdatedEl.textContent = '🕒 上次更新：' + manualTime;
+                }
+            }
+            convertFromJPY();
+            renderExpenses();
+        }
+
+        // 即時匯率按鈕功能（支援雙重公開金融 API 自動切換，獲取當下最新 JPY → HKD 匯率並顯示上次更新時間）
+        async function fetchLiveExchangeRate() {
+            const btn = document.getElementById('fetch-rate-btn');
+            const msg = document.getElementById('rate-status-msg');
+            const lastUpdatedEl = document.getElementById('rate-last-updated');
+            if (btn) {
+                btn.textContent = '⏳ 正在取得即時匯率...';
+                btn.disabled = true;
+            }
+            if (msg) {
+                msg.textContent = '🔄 正在連線至國際匯率中心查詢當下最新 JPY/HKD 匯率...';
+                msg.style.color = '#3E3A39';
+            }
+
+            try {
+                let hkdRate = null;
+                // 優先使用 ExchangeRate-API 公開端點
+                try {
+                    const res1 = await fetch('https://open.er-api.com/v6/latest/JPY');
+                    if (res1.ok) {
+                        const data1 = await res1.json();
+                        if (data1 && data1.rates && data1.rates.HKD) {
+                            hkdRate = parseFloat(data1.rates.HKD);
+                        }
+                    }
+                } catch (e1) {
+                    // 若第一個端點受阻，自動切換至 Frankfurter (歐洲央行公開匯率 API)
+                }
+
+                if (!hkdRate) {
+                    const res2 = await fetch('https://api.frankfurter.app/latest?from=JPY&to=HKD');
+                    if (res2.ok) {
+                        const data2 = await res2.json();
+                        if (data2 && data2.rates && data2.rates.HKD) {
+                            hkdRate = parseFloat(data2.rates.HKD);
+                        }
+                    }
+                }
+
+                if (hkdRate && hkdRate > 0) {
+                    const formattedRate = hkdRate.toFixed(4);
+                    const rateInput = document.getElementById('rate-input');
+                    if (rateInput) {
+                        rateInput.value = formattedRate;
+                    }
+                    updateRate(false);
+                    const nowStr = getFormattedNow();
+                    localStorage.setItem('jp2026_fx_updated_time', nowStr);
+                    if (lastUpdatedEl) {
+                        lastUpdatedEl.textContent = '🕒 上次更新：' + nowStr;
+                    }
+                    if (msg) {
+                        msg.innerHTML = '✅ <strong>已成功更新當下即時匯率：1 JPY = ' + formattedRate + ' HKD</strong>（每 ¥10,000 ≈ HK$ ' + (hkdRate * 10000).toFixed(1) + '）';
+                        msg.style.color = '#2e7d32';
+                    }
+                } else {
+                    throw new Error('無法解析匯率數據');
+                }
+            } catch (err) {
+                const savedTime = localStorage.getItem('jp2026_fx_updated_time');
+                if (lastUpdatedEl) {
+                    lastUpdatedEl.textContent = savedTime ? ('🕒 上次更新：' + savedTime) : '🕒 上次更新：預設匯率 (離線)';
+                }
+                if (msg) {
+                    msg.textContent = '⚠️ 無法連線取得即時匯率（可能處於離線狀態），您仍可直接在上方輸入框手動修改匯率。';
+                    msg.style.color = '#c62828';
+                }
+            } finally {
+                if (btn) {
+                    btn.textContent = '⚡ 取得當下即時匯率';
+                    btn.disabled = false;
+                }
+            }
+        }
+
+        // 4. 購物記帳本功能（指定 8 項分類）
+        let expenses = [];
+
+        function loadExpenses() {
+            try {
+                const saved = localStorage.getItem('jp2026_expenses');
+                if (saved) {
+                    expenses = JSON.parse(saved);
+                } else {
+                    expenses = [
+                        { id: 1, day: 'Day 1 (11/28 橫濱)', cat: '美食餐飲', name: 'Soup Stock Tokyo 湯品套餐 (範例)', jpy: 1380, taxfree: false }
+                    ];
+                }
+            } catch (e) {
+                expenses = [];
+            }
+            const savedBudget = localStorage.getItem('jp2026_budget_limit');
+            if (savedBudget) {
+                document.getElementById('budget-limit-input').value = savedBudget;
+            }
+            renderExpenses();
+        }
+
+        function saveExpenses() {
+            localStorage.setItem('jp2026_expenses', JSON.stringify(expenses));
+        }
+
+        function updateBudgetLimit() {
+            const val = document.getElementById('budget-limit-input').value;
+            localStorage.setItem('jp2026_budget_limit', val);
+            renderExpenses();
+        }
+
+        function addExpense() {
+            const day = document.getElementById('exp-day').value;
+            const cat = document.getElementById('exp-cat').value;
+            const nameInput = document.getElementById('exp-name');
+            const jpyInput = document.getElementById('exp-jpy');
+            const taxfreeInput = document.getElementById('exp-taxfree');
+
+            const name = nameInput.value.trim() || cat;
+            const jpy = parseFloat(jpyInput.value);
+
+            if (isNaN(jpy) || jpy <= 0) {
+                alert('請輸入有效的日圓金額！');
+                return;
+            }
+
+            expenses.unshift({
+                id: Date.now(),
+                day: day,
+                cat: cat,
+                name: name,
+                jpy: Math.round(jpy),
+                taxfree: taxfreeInput.checked
+            });
+
+            nameInput.value = '';
+            jpyInput.value = '';
+            taxfreeInput.checked = false;
+
+            saveExpenses();
+            renderExpenses();
+        }
+
+        function deleteExpense(id) {
+            expenses = expenses.filter(item => item.id !== id);
+            saveExpenses();
+            renderExpenses();
+        }
+
+        function clearAllExpenses() {
+            if (confirm('確定要清空所有購物記帳紀錄嗎？')) {
+                expenses = [];
+                saveExpenses();
+                renderExpenses();
+            }
+        }
+
+        function renderExpenses() {
+            const listEl = document.getElementById('expense-list');
+            const rate = getRate();
+            listEl.innerHTML = '';
+
+            let totalJPY = 0;
+            let taxFreeCount = 0;
+
+            expenses.forEach(item => {
+                totalJPY += item.jpy;
+                if (item.taxfree) taxFreeCount++;
+
+                const hkd = (item.jpy * rate).toFixed(1);
+                const row = document.createElement('div');
+                row.className = 'expense-row';
+                row.innerHTML = `
+                    <div class="expense-row-left">
+                        <span class="badge badge-spot">${item.day}</span>
+                        <span class="badge badge-food">${item.cat}</span>
+                        ${item.taxfree ? '<span class="badge badge-must">免稅</span>' : ''}
+                        <strong>${item.name}</strong>
+                    </div>
+                    <div class="expense-row-right">
+                        <span class="expense-amount-jpy">¥${item.jpy.toLocaleString()}</span>
+                        <span class="expense-amount-hkd">≈ HK$ ${hkd}</span>
+                        <button class="del-expense-btn" onclick="deleteExpense(${item.id})">刪除</button>
+                    </div>
+                `;
+                listEl.appendChild(row);
+            });
+
+            const totalHKD = (totalJPY * rate).toFixed(2);
+            document.getElementById('total-jpy-display').textContent = '¥' + totalJPY.toLocaleString();
+            document.getElementById('total-hkd-display').textContent = 'HK$ ' + totalHKD;
+            document.getElementById('total-count-display').textContent = expenses.length + ' 筆 (' + taxFreeCount + ' 免稅)';
+
+            const budgetLimit = parseFloat(document.getElementById('budget-limit-input').value) || 200000;
+            const pct = Math.min(100, Math.round((totalJPY / budgetLimit) * 100));
+            document.getElementById('budget-percent-text').textContent = pct + '% (¥' + totalJPY.toLocaleString() + ' / ¥' + budgetLimit.toLocaleString() + ')';
+            const fillBar = document.getElementById('budget-fill-bar');
+            fillBar.style.width = pct + '%';
+            fillBar.style.backgroundColor = pct >= 90 ? 'var(--color-coral)' : (pct >= 70 ? 'var(--color-yamabuki)' : 'var(--color-wakatake)');
+        }
+
+        function exportExpensesCSV() {
+            if (expenses.length === 0) {
+                alert('目前尚無記帳紀錄可匯出！');
+                return;
+            }
+            const rate = getRate();
+            let csv = '\uFEFF日期,分類,商品或店鋪名稱,日圓(JPY),折合港幣(HKD),是否免稅\n';
+            expenses.forEach(item => {
+                const safeName = item.name.replace(/"/g, '""');
+                const hkd = (item.jpy * rate).toFixed(2);
+                csv += `"${item.day}","${item.cat}","${safeName}",${item.jpy},${hkd},"${item.taxfree ? '是' : '否'}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '2026_橫濱東京購物記帳明細.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // 5. 旅遊自訂待辦清單 (完全由使用者自由新增、打勾、刪除，並儲存於本機)
+        let todos = [];
+
+        function loadTodos() {
+            try {
+                const saved = localStorage.getItem('jp2026_custom_todos');
+                if (saved) {
+                    todos = JSON.parse(saved);
+                } else {
+                    todos = [
+                        { id: 1, text: "填寫 Visit Japan Web 並取得入境 QR Code", completed: false },
+                        { id: 2, text: "準備日本上網卡/eSIM 與開通手續", completed: false },
+                        { id: 3, text: "兌換日圓現金並確認信用卡海外交易功能", completed: false }
+                    ];
+                }
+            } catch (e) {
+                todos = [];
+            }
+            renderTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('jp2026_custom_todos', JSON.stringify(todos));
+        }
+
+        function addTodo() {
+            const input = document.getElementById('new-todo-text');
+            const text = input.value.trim();
+            if (!text) {
+                alert('請輸入待辦事項內容！');
+                return;
+            }
+            todos.push({
+                id: Date.now(),
+                text: text,
+                completed: false
+            });
+            input.value = '';
+            saveTodos();
+            renderTodos();
+        }
+
+        function toggleTodoState(id) {
+            todos = todos.map(t => {
+                if (t.id === id) t.completed = !t.completed;
+                return t;
+            });
+            saveTodos();
+            renderTodos();
+        }
+
+        function deleteTodo(id) {
+            todos = todos.filter(t => t.id !== id);
+            saveTodos();
+            renderTodos();
+        }
+
+        function clearAllTodos() {
+            if (confirm('確定要清空所有的待辦事項嗎？')) {
+                todos = [];
+                saveTodos();
+                renderTodos();
+            }
+        }
+
+        function renderTodos() {
+            const container = document.getElementById('todo-list-container');
+            container.innerHTML = '';
+
+            todos.forEach(t => {
+                const item = document.createElement('div');
+                item.className = 'todo-item';
+                item.innerHTML = `
+                    <div class="todo-item-left" onclick="toggleTodoState(${t.id})">
+                        <input type="checkbox" ${t.completed ? 'checked' : ''}>
+                        <span class="todo-text ${t.completed ? 'completed' : ''}">${t.text}</span>
+                    </div>
+                    <button class="del-expense-btn" onclick="event.stopPropagation(); deleteTodo(${t.id})">刪除</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // 6. 每日行程所在地即時天氣自動更新（依 Day 1~3 橫濱、Day 4~9 東京、Day 10 酒々井/成田 顯示即時氣溫與預估氣溫）
+        function getWeatherDesc(code) {
+            if (code === 0) return '☀️ 晴朗';
+            if (code <= 3) return '🌤️ 晴時多雲';
+            if (code <= 48) return '🌫️ 有霧';
+            if (code <= 67) return '🌧️ 有雨';
+            if (code <= 77) return '❄️ 降雪';
+            if (code <= 82) return '🌦️ 陣雨';
+            return '⛅ 多雲';
+        }
+
+        async function fetchLiveDailyWeather() {
+            try {
+                const [resYoko, resTokyo, resNarita] = await Promise.all([
+                    fetch('https://api.open-meteo.com/v1/forecast?latitude=35.4437&longitude=139.6380&current_weather=true'),
+                    fetch('https://api.open-meteo.com/v1/forecast?latitude=35.6762&longitude=139.6503&current_weather=true'),
+                    fetch('https://api.open-meteo.com/v1/forecast?latitude=35.7720&longitude=140.3929&current_weather=true')
+                ]);
+
+                const yokoData = resYoko.ok ? await resYoko.json() : null;
+                const tokyoData = resTokyo.ok ? await resTokyo.json() : null;
+                const naritaData = resNarita.ok ? await resNarita.json() : null;
+
+                for (let d = 1; d <= 10; d++) {
+                    const dayEl = document.getElementById('day-' + d);
+                    if (!dayEl) continue;
+                    const pill = dayEl.querySelector('.weather-temp-pill');
+                    if (!pill) continue;
+
+                    if (!pill.dataset.baseText) {
+                        pill.dataset.baseText = pill.textContent;
+                    }
+
+                    let cw = null;
+                    let locName = '';
+                    if (d <= 3 && yokoData && yokoData.current_weather) {
+                        cw = yokoData.current_weather;
+                        locName = '橫濱即時';
+                    } else if (d >= 4 && d <= 9 && tokyoData && tokyoData.current_weather) {
+                        cw = tokyoData.current_weather;
+                        locName = '東京即時';
+                    } else if (d === 10 && naritaData && naritaData.current_weather) {
+                        cw = naritaData.current_weather;
+                        locName = '成田即時';
+                    }
+
+                    if (cw) {
+                        pill.innerHTML = `${pill.dataset.baseText} ｜ <span style="color:#c62828;">🌡️ ${locName}：${cw.temperature}°C (${getWeatherDesc(cw.weathercode)})</span>`;
+                    }
+                }
+            } catch (e) {
+                // 離線時保留原有預估氣溫顯示
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedRate = localStorage.getItem('jp2026_fx_rate');
+            if (savedRate) {
+                document.getElementById('rate-input').value = savedRate;
+            }
+            const savedTime = localStorage.getItem('jp2026_fx_updated_time');
+            const lastUpdatedEl = document.getElementById('rate-last-updated');
+            if (savedTime && lastUpdatedEl) {
+                lastUpdatedEl.textContent = '🕒 上次更新：' + savedTime;
+            }
+            convertFromJPY();
+            loadExpenses();
+            loadTodos();
+            // 開啟網頁時自動嘗試取得當下最新即時匯率與各日所在地即時天氣
+            fetchLiveExchangeRate();
+            fetchLiveDailyWeather();
+        });
+    </script>
+</body>
+</html>
+```
